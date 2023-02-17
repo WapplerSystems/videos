@@ -1,26 +1,26 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" lang="en">
 <f:layout name="Default" />
 <f:section name="Header">
 
-
-	<f:render partial="Header/All" arguments="{_all}" />
-
+    <f:render partial="Header/All" arguments="{_all}" />
 
 </f:section>
 <f:section name="Main">
 
-	<div class="player-container tx-videos__player">
-		<video id="video{data.uid}" class="video-js vjs-big-play-centered vjs-fluid" controls preload="auto" crossorigin="anonymous" >
-			<p class="vjs-no-js"><f:translate key="LLL:EXT:videos/Resources/Language/locallang.xfl:javascript_disabled" /></p>
-		</video>
+    <div class="player-container tx-videos__player">
+        <video id="video{data.uid}" class="video-js vjs-big-play-centered vjs-fluid" controls preload="auto" crossorigin="anonymous">
+            <p class="vjs-no-js">
+                <f:translate key="LLL:EXT:videos/Resources/Language/locallang.xfl:javascript_disabled"/>
+            </p>
+        </video>
 
-		<div class="playlist-container preview-player-dimensions vjs-fluid">
-			<div class="vjs-playlist"></div>
-		</div>
-	</div>
+        <div class="playlist-container preview-player-dimensions vjs-fluid">
+            <div class="vjs-playlist"></div>
+        </div>
+    </div>
 
 
-	<script>
+    <script>
         var player{data.uid} = videojs('video{data.uid}');
 
         player{data.uid}.playlist({videos -> f:format.raw()});
@@ -28,7 +28,7 @@
         player{data.uid}.playlistUi();
 
         player{data.uid}.markers();
-	</script>
+    </script>
 
 
 </f:section>
