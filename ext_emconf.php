@@ -1,24 +1,15 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['videos'] = [
     'title' => 'Videos',
     'description' => 'Extends video file properties and provides a player for playlists, cue points and subtitles',
     'author' => 'Sven Wappler',
     'author_email' => 'typo3@wappler.systems',
     'category' => 'misc',
     'author_company' => 'WapplerSystems',
-    'shy' => '',
-    'conflicts' => '',
-    'priority' => '',
-    'module' => '',
     'state' => 'stable',
-    'internal' => '',
-    'uploadfolder' => 0,
-    'createDirs' => '',
-    'modify_tables' => '',
     'clearCacheOnLoad' => 1,
-    'lockType' => '',
-    'version' => '11.0.1',
+    'version' => '11.0.2',
     'constraints' => [
         'depends' => [
             'typo3' => '11.5.0-11.5.99',
@@ -28,8 +19,6 @@ $EM_CONF[$_EXTKEY] = [
         ],
         'suggests' => [
         ],
-    ],
-    'suggests' => [
     ],
 ];
 
