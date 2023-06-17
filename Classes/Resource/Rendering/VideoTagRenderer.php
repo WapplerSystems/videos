@@ -69,7 +69,7 @@ class VideoTagRenderer implements FileRendererInterface
     {
 
         // If autoplay isn't set manually check if $file is a FileReference take autoplay from there
-        if (!isset($options['autoplay']) && $file instanceof FileReference) {
+        if ($file instanceof FileReference) {
             $autoplay = $file->getProperty('autoplay');
             if ($autoplay !== null) {
                 $options['autoplay'] = $autoplay;
@@ -111,7 +111,6 @@ class VideoTagRenderer implements FileRendererInterface
         if ($file instanceof FileReference) {
             $file = $file->getOriginalFile();
         }
-
         if ($file->getProperty('poster')) {
             /** @var FileRepository $fileRepository */
             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
@@ -123,7 +122,6 @@ class VideoTagRenderer implements FileRendererInterface
                 $posterFile = $fileObjects[0];
                 $attributes[] = 'poster="' . $posterFile->getPublicUrl() . '"';
             }
-
         }
 
         /* TODO: make it configurable */
@@ -159,7 +157,6 @@ class VideoTagRenderer implements FileRendererInterface
                 $tracks .= '<track label="'.$languageTitle.'" kind="'.($trackType ?: 'subtitles').'" srclang="'.$isoCode.'" src="' . $fileObject->getPublicUrl() . '">';
             }
         }
-
 
         foreach (['class', 'dir', 'id', 'lang', 'style', 'title', 'accesskey', 'tabindex', 'onclick'] as $key) {
             if (!empty($options[$key])) {
