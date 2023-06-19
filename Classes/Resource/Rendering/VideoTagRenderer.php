@@ -75,6 +75,7 @@ class VideoTagRenderer implements FileRendererInterface
             $autoplay = $file->getProperty('autoplay');
             if ($autoplay) {
                 $attributes['autoplay'] = 'autoplay';
+                $attributes['playsinline'] = 'playsinline';
             }
             $muted = $file->getProperty('muted');
             if ($muted) {
@@ -98,12 +99,16 @@ class VideoTagRenderer implements FileRendererInterface
         }
         if ($options['autoplay'] ?? false) {
             $attributes['autoplay'] = 'autoplay';
+            $attributes['playsinline'] = 'playsinline';
         }
         if (($options['muted'] ?? false) || (($attributes['autoplay'] ?? '') === 'autoplay')) {
             $attributes['muted'] = 'muted';
         }
         if ($options['loop'] ?? false) {
             $attributes['loop'] = 'loop';
+        }
+        if ($options['playsinline'] ?? false) {
+            $attributes['playsinline'] = 'playsinline';
         }
         if ($options['poster'] ?? false) {
             $attributes['poster'] = 'poster="'.$options['poster'].'"';
