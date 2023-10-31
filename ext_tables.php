@@ -5,7 +5,7 @@ defined('TYPO3_MODE') or die();
 call_user_func(
     function ($extKey) {
 
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, 'Configuration/TypoScript', 'Videos template');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, 'Configuration/TypoScript', '[videos] video player');
 
     },
     'videos'
