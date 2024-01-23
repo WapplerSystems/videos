@@ -1,4 +1,19 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" lang="en">
+
+<f:asset.script identifier="videojs" src="EXT:videos/Resources/Public/JavaScript/video.min.js" />
+<f:asset.script identifier="videojs-de" src="EXT:videos/Resources/Public/JavaScript/lang/de.js" />
+<f:asset.script identifier="videojs-playlist" src="EXT:videos/Resources/Public/JavaScript/videojs-playlist.js" />
+<f:asset.script identifier="videojs-playlist-ui" src="EXT:videos/Resources/Public/JavaScript/videojs-playlist-ui.js" />
+<f:asset.script identifier="videojs-markers" src="EXT:videos/Resources/Public/JavaScript/videojs-markers.js" />
+<f:asset.script identifier="videojs-markers-ui" src="EXT:videos/Resources/Public/JavaScript/videojs-markers-ui.js" />
+
+
+<f:asset.css identifier="videojs" href="EXT:videos/Resources/Public/CSS/video-js.css" />
+<f:asset.css identifier="videojs-playlist-ui-vertical" href="EXT:videos/Resources/Public/CSS/videojs-playlist-ui.vertical.css" />
+<f:asset.css identifier="videojs-markers" href="EXT:videos/Resources/Public/CSS/videojs-markers.css" />
+<f:asset.css identifier="videojs-markers-ui" href="EXT:videos/Resources/Public/CSS/videojs-markers-ui.css" />
+<f:asset.css identifier="videos-styles" href="EXT:videos/Resources/Public/CSS/styles.css" />
+
 <figure class="video ">
     <div class="player-container tx-videos__player">
         <f:render partial="Media/Rendering/Video" arguments="{data: data, file: file, dimensions: dimensions, settings: settings}"/>
