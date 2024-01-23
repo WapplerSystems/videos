@@ -14,7 +14,7 @@ tt_content.videos_playlist {
 
 tt_content.textmedia {
 
-  partialRootPaths.232 = EXT:videos/Resources/Private/Partials/fluid_styled_content/
+  partialRootPaths.3 = EXT:videos/Resources/Private/Partials/fluid_styled_content/
 
 }
 
