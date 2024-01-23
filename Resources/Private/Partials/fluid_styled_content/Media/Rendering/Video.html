@@ -2,10 +2,10 @@
 
 <f:media id="video{data.uid}" class="video-js vjs-big-play-centered vjs-{f:if(condition:file.properties.aspect_ratio,then:'{file.properties.aspect_ratio -> v:format.replace(substring:\':\',replacement:\'-\')}',else:'16-9')} " file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" />
 
-<script>
-    var player{data.uid} = videojs('video{data.uid}');
-    player{data.uid}.markers();
-    player{data.uid}.markersUi();
-</script>
+<f:asset.script identifier="video-{file.uid}">
+    var player{file.uid} = videojs('video-{file.uid}');
+    player{file.uid}.markers();
+    player{file.uid}.markersUi();
+</f:asset.script>
 
 </html>

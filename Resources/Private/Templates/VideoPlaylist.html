@@ -7,6 +7,21 @@
 </f:section>
 <f:section name="Main">
 
+
+    <f:asset.script identifier="videojs" src="EXT:videos/Resources/Public/JavaScript/video.min.js" />
+    <f:asset.script identifier="videojs-de" src="EXT:videos/Resources/Public/JavaScript/lang/de.js" />
+    <f:asset.script identifier="videojs-playlist" src="EXT:videos/Resources/Public/JavaScript/videojs-playlist.js" />
+    <f:asset.script identifier="videojs-playlist-ui" src="EXT:videos/Resources/Public/JavaScript/videojs-playlist-ui.js" />
+    <f:asset.script identifier="videojs-markers" src="EXT:videos/Resources/Public/JavaScript/videojs-markers.js" />
+    <f:asset.script identifier="videojs-markers-ui" src="EXT:videos/Resources/Public/JavaScript/videojs-markers-ui.js" />
+
+
+    <f:asset.css identifier="videojs" href="EXT:videos/Resources/Public/CSS/video-js.css" />
+    <f:asset.css identifier="videojs-playlist-ui-vertical" href="EXT:videos/Resources/Public/CSS/videojs-playlist-ui.vertical.css" />
+    <f:asset.css identifier="videojs-markers" href="EXT:videos/Resources/Public/CSS/videojs-markers.css" />
+    <f:asset.css identifier="videojs-markers-ui" href="EXT:videos/Resources/Public/CSS/videojs-markers-ui.css" />
+    <f:asset.css identifier="videos-styles" href="EXT:videos/Resources/Public/CSS/styles.css" />
+
     <div class="player-container tx-videos__player">
         <video id="video{data.uid}" class="video-js vjs-big-play-centered vjs-fluid" controls preload="auto" crossorigin="anonymous">
             <p class="vjs-no-js">
@@ -20,16 +35,12 @@
     </div>
 
 
-    <script>
+    <f:asset.script identifier="video-{data.uid}">
         var player{data.uid} = videojs('video{data.uid}');
-
         player{data.uid}.playlist({videos -> f:format.raw()});
-
         player{data.uid}.playlistUi();
-
         player{data.uid}.markers();
-    </script>
-
+    </f:asset.script>
 
 </f:section>
 </html>
