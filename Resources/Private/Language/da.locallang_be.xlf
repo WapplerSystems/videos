@@ -3,77 +3,77 @@
   <file source-language="en" datatype="plaintext" original="messages" product-name="videos" date="2014-01-05T14:38:32+01:00" target-language="da">
     <header/>
     <body>
-      <trans-unit id="tx_videos_domain_model_cuepoint.plural">
+      <trans-unit id="tx_videos_domain_model_cuepoint.plural" approved="yes">
         <source>Cue points</source>
-        <target state="needs-translation">Cue points</target>
+        <target state="final">Cuepunkter</target>
       </trans-unit>
-      <trans-unit id="tx_videos_domain_model_cuepoint.singular">
+      <trans-unit id="tx_videos_domain_model_cuepoint.singular" approved="yes">
         <source>Cue point</source>
-        <target state="needs-translation">Cue point</target>
+        <target state="final">Cuepunkt</target>
       </trans-unit>
-      <trans-unit id="tx_videos_domain_model_cuepoint.title">
+      <trans-unit id="tx_videos_domain_model_cuepoint.title" approved="yes">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="final">Titel</target>
       </trans-unit>
-      <trans-unit id="tx_videos_domain_model_cuepoint.position">
+      <trans-unit id="tx_videos_domain_model_cuepoint.position" approved="yes">
         <source>Position</source>
-        <target state="needs-translation">Position</target>
+        <target state="final">Position</target>
       </trans-unit>
-      <trans-unit id="poster">
+      <trans-unit id="poster" approved="yes">
         <source>Poster</source>
-        <target state="needs-translation">Poster</target>
+        <target state="final">Poster</target>
       </trans-unit>
-      <trans-unit id="muted">
+      <trans-unit id="muted" approved="yes">
         <source>Muted</source>
-        <target state="needs-translation">Muted</target>
+        <target state="final">Lydløs</target>
       </trans-unit>
-      <trans-unit id="loop">
+      <trans-unit id="loop" approved="yes">
         <source>Loop</source>
-        <target state="needs-translation">Loop</target>
+        <target state="final">Sløjfe</target>
       </trans-unit>
-      <trans-unit id="aspectRatio">
+      <trans-unit id="aspectRatio" approved="yes">
         <source>Aspect ratio</source>
-        <target state="needs-translation">Aspect ratio</target>
+        <target state="final">Størrelsesforhold</target>
       </trans-unit>
-      <trans-unit id="show_related_videos">
+      <trans-unit id="show_related_videos" approved="yes">
         <source>Show related videos from other channels (YouTube only)</source>
-        <target state="needs-translation">Show related videos from other channels (YouTube only)</target>
+        <target state="final">Vis relaterede videoer fra andre kanaler (kun YouTube)</target>
       </trans-unit>
-      <trans-unit id="tracks">
+      <trans-unit id="tracks" approved="yes">
         <source>Tracks</source>
-        <target state="needs-translation">Tracks</target>
+        <target state="final">Spor</target>
       </trans-unit>
-      <trans-unit id="track_language">
+      <trans-unit id="track_language" approved="yes">
         <source>Track language</source>
-        <target state="needs-translation">Track language</target>
+        <target state="final">Sporsprog</target>
       </trans-unit>
-      <trans-unit id="track_type">
+      <trans-unit id="track_type" approved="yes">
         <source>Track type</source>
-        <target state="needs-translation">Track type</target>
+        <target state="final">Sportype</target>
       </trans-unit>
-      <trans-unit id="track_type.subtitles">
+      <trans-unit id="track_type.subtitles" approved="yes">
         <source>Subtitles</source>
-        <target state="needs-translation">Subtitles</target>
+        <target state="final">Undertekster</target>
       </trans-unit>
-      <trans-unit id="track_type.captions">
+      <trans-unit id="track_type.captions" approved="yes">
         <source>Captions</source>
-        <target state="needs-translation">Captions</target>
+        <target state="final">Billedtekster</target>
       </trans-unit>
-      <trans-unit id="track_type.descriptions">
+      <trans-unit id="track_type.descriptions" approved="yes">
         <source>Descriptions</source>
-        <target state="needs-translation">Descriptions</target>
+        <target state="final">Beskrivelser</target>
       </trans-unit>
-      <trans-unit id="track_type.chapters">
+      <trans-unit id="track_type.chapters" approved="yes">
         <source>Chapters</source>
-        <target state="needs-translation">Chapters</target>
+        <target state="final">Kapitler</target>
       </trans-unit>
-      <trans-unit id="track_type.metadata">
+      <trans-unit id="track_type.metadata" approved="yes">
         <source>Metadata</source>
-        <target state="needs-translation">Metadata</target>
+        <target state="final">Metadata</target>
       </trans-unit>
-      <trans-unit id="tt_content.videos">
+      <trans-unit id="tt_content.videos" approved="yes">
         <source>Videos</source>
-        <target state="needs-translation">Videos</target>
+        <target state="final">Videoer</target>
       </trans-unit>
     </body>
   </file>
