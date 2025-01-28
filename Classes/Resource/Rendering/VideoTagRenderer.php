@@ -127,6 +127,12 @@ class VideoTagRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VideoTagRender
             $attributes['poster'] = 'poster="'.$options['poster'].'"';
         }
 
+        $crossorigin = GeneralUtility::makeInstance(ExtensionConfiguration::class)
+            ->get('videos', 'crossorigin');
+        if ($crossorigin) {
+            $attributes['crossorigin'] = 'crossorigin="'.$crossorigin.'"';
+        }
+
         if ($file instanceof FileReference) {
             $file = $file->getOriginalFile();
         }

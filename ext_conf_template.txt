@@ -1,3 +1,6 @@
 
 # cat=Frontend; type=boolean; label=Add controls to all server side hosted videos
 controls = 1
+
+# cat=Frontend; type=options[anonymous=anonymous,use-credentials=use-credentials]; label=Crossorigin attribute for all videos
+crossorigin = anonymous
