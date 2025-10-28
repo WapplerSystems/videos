@@ -164,13 +164,13 @@ class VideoTagRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VideoTagRender
 
                 $defaultLanguage = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($GLOBALS['TSFE']->id)->getDefaultLanguage();
 
-                $isoCode = $defaultLanguage->getTwoLetterIsoCode();
+                $isoCode = $defaultLanguage->getHreflang();
 
                 if ($trackLanguage > -1) {
                     $language = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($GLOBALS['TSFE']->id)->getLanguageById($trackLanguage);
                     if ($language) {
                         $languageTitle = $language->getTitle();
-                        $isoCode = $language->getTwoLetterIsoCode();
+                        $isoCode = $language->getHreflang();
                     }
                 }
 
