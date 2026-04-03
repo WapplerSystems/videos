@@ -1,32 +1,43 @@
 {
-	"name": "wapplersystems/videos",
-	"type": "typo3-cms-extension",
-	"description": "Extends video file properties and provides a player for playlists, cue points and subtitles",
-	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"TYPO3",
-		"extension",
-		"video",
-		"video",
-		"videos",
-		"playlist",
-		"markers",
-		"cue points",
-		"tracks"
-	],
-	"homepage": "https://wappler.systems",
-	"require": {
-		"typo3/cms-core": "^13",
-		"typo3/cms-filemetadata": "^13"
-	},
-	"autoload": {
-		"psr-4": {
-			"WapplerSystems\\Videos\\": "Classes"
-		}
-	},
-	"extra": {
-		"typo3/cms": {
-			"extension-key": "videos"
-		}
-	}
+    "name": "wapplersystems/videos",
+    "type": "typo3-cms-extension",
+    "description": "Extends video file properties and provides a player for playlists, cue points and subtitles",
+    "homepage": "https://github.com/WapplerSystems/videos",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "video",
+        "videos",
+        "playlist",
+        "markers",
+        "cue points",
+        "tracks"
+    ],
+    "authors": [
+        {
+            "name": "Sven Wappler",
+            "email": "typo3@wappler.systems",
+            "role": "Developer",
+            "homepage": "https://wappler.systems"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/WapplerSystems/videos/issues",
+        "source": "https://github.com/WapplerSystems/videos"
+    },
+    "require": {
+        "typo3/cms-core": "^13",
+        "typo3/cms-filemetadata": "^13"
+    },
+    "autoload": {
+        "psr-4": {
+            "WapplerSystems\\Videos\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "videos"
+        }
+    }
 }
