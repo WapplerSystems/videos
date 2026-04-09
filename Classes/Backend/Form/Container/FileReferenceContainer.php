@@ -20,6 +20,7 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Imaging\Icon;
+use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
@@ -65,7 +66,7 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
         );
         if ($this->data['isInlineDefaultLanguageRecordInLocalizedParentContext']) {
             $controls['localize'] = $this->iconFactory
-                ->getIcon('actions-edit-localize-status-low', Icon::SIZE_SMALL)
+                ->getIcon('actions-edit-localize-status-low', IconSize::SMALL)
                 ->setTitle($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_misc.xlf:localize.isLocalizable'))
                 ->render();
         }
@@ -73,12 +74,12 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
             if ($isNewItem) {
                 $controls['info'] = '
                     <span class="btn btn-default disabled">
-                        ' . $this->iconFactory->getIcon('empty-empty', Icon::SIZE_SMALL)->render() . '
+                        ' . $this->iconFactory->getIcon('empty-empty', IconSize::SMALL)->render() . '
                     </span>';
             } else {
                 $controls['info'] = '
                     <button type="button" class="btn btn-default" data-action="infowindow" data-info-table="' . htmlspecialchars('_FILE') . '" data-info-uid="' . (int)$databaseRow['uid_local'][0]['uid'] . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:showInfo')) . '">
-                        ' . $this->iconFactory->getIcon('actions-document-info', Icon::SIZE_SMALL)->render() . '
+                        ' . $this->iconFactory->getIcon('actions-document-info', IconSize::SMALL)->render() . '
                     </button>';
             }
         }
@@ -96,7 +97,7 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
                 }
                 $controls['sort.up'] = '
                     <button type="button" class="btn btn-default' . $class . '" data-action="sort" data-direction="up" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:moveUp')) . '">
-                        ' . $this->iconFactory->getIcon($icon, Icon::SIZE_SMALL)->render() . '
+                        ' . $this->iconFactory->getIcon($icon, IconSize::SMALL)->render() . '
                     </button>';
 
                 $icon = 'actions-move-down';
@@ -107,7 +108,7 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
                 }
                 $controls['sort.down'] = '
                     <button type="button" class="btn btn-default' . $class . '" data-action="sort" data-direction="down" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:moveDown')) . '">
-                        ' . $this->iconFactory->getIcon($icon, Icon::SIZE_SMALL)->render() . '
+                        ' . $this->iconFactory->getIcon($icon, IconSize::SMALL)->render() . '
                     </button>';
             }
             if (!$isNewItem
@@ -144,7 +145,7 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
                     ]);
                     $controls['edit'] = '
                         <a class="btn btn-default" href="' . htmlspecialchars($url) . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:cm.editMetadata')) . '">
-                            ' . $this->iconFactory->getIcon('actions-open', Icon::SIZE_SMALL)->render() . '
+                            ' . $this->iconFactory->getIcon('actions-open', IconSize::SMALL)->render() . '
                         </a>';
                 }
             }
@@ -156,7 +157,7 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
                 }
                 $controls['delete'] = '
                     <button type="button" class="btn btn-default t3js-editform-delete-file-reference" data-record-info="' . htmlspecialchars(trim($recordInfo)) . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:delete')) . '">
-                        ' . $this->iconFactory->getIcon('actions-edit-delete', Icon::SIZE_SMALL)->render() . '
+                        ' . $this->iconFactory->getIcon('actions-edit-delete', IconSize::SMALL)->render() . '
                     </button>';
             }
             if (($hiddenField = (string)($fileReferenceTableTca['ctrl']['enablecolumns']['disabled'] ?? '')) !== ''
@@ -170,19 +171,19 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
                 if ($databaseRow[$hiddenField] ?? false) {
                     $controls['hide'] = '
                         <button type="button" class="btn btn-default t3js-toggle-visibility-button" data-hidden-field="' . htmlspecialchars($hiddenField) . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:unHide')) . '">
-                            ' . $this->iconFactory->getIcon('actions-edit-unhide', Icon::SIZE_SMALL)->render() . '
+                            ' . $this->iconFactory->getIcon('actions-edit-unhide', IconSize::SMALL)->render() . '
                         </button>';
                 } else {
                     $controls['hide'] = '
                         <button type="button" class="btn btn-default t3js-toggle-visibility-button" data-hidden-field="' . htmlspecialchars($hiddenField) . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:hide')) . '">
-                            ' . $this->iconFactory->getIcon('actions-edit-hide', Icon::SIZE_SMALL)->render() . '
+                            ' . $this->iconFactory->getIcon('actions-edit-hide', IconSize::SMALL)->render() . '
                         </button>';
                 }
             }
             if (($parentConfig['appearance']['useSortable'] ?? false) && $event->isControlEnabled('dragdrop')) {
                 $controls['dragdrop'] = '
                     <span class="btn btn-default sortableHandle" data-id="' . (int)$databaseRow['uid'] . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.move')) . '">
-                        ' . $this->iconFactory->getIcon('actions-move-move', Icon::SIZE_SMALL)->render() . '
+                        ' . $this->iconFactory->getIcon('actions-move-move', IconSize::SMALL)->render() . '
                     </span>';
             }
         } elseif (($this->data['isInlineDefaultLanguageRecordInLocalizedParentContext'] ?? false)
@@ -191,13 +192,13 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
         ) {
             $controls['localize'] = '
                 <button type="button" class="btn btn-default t3js-synchronizelocalize-button" data-type="' . htmlspecialchars((string)$databaseRow['uid']) . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_misc.xlf:localize')) . '">
-                    ' . $this->iconFactory->getIcon('actions-document-localize', Icon::SIZE_SMALL)->render() . '
+                    ' . $this->iconFactory->getIcon('actions-document-localize', IconSize::SMALL)->render() . '
                 </button>';
         }
         if ($lockInfo = BackendUtility::isRecordLocked('sys_file_reference', $databaseRow['uid'])) {
             $controls['locked'] = '
 				<button type="button" class="btn btn-default" title="' . htmlspecialchars($lockInfo['msg']) . '">
-					' . $this->iconFactory->getIcon('status-user-backend', Icon::SIZE_SMALL, 'overlay-edit')->render() . '
+					' . $this->iconFactory->getIcon('status-user-backend', IconSize::SMALL, 'overlay-edit')->render() . '
 				</button>';
         }
 
