@@ -11,15 +11,11 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Resource\Filter\FileExtensionFilter;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-ExtensionManagementUtility::addPlugin(
-    [
-        'Video Playlist',
-        'videos_playlist',
-        'EXT:core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-x-content-multimedia.svg'
-    ],
-    'CType',
-    'videos'
-);
+ExtensionManagementUtility::addTcaSelectItem('tt_content', 'CType', [
+    'label' => 'LLL:EXT:videos/Resources/Private/Language/locallang_be.xlf:tt_content.CType.videos_playlist',
+    'value' => 'videos_playlist',
+    'icon' => 'mimetypes-x-content-multimedia',
+]);
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['videos_playlist'] = 'mimetypes-x-content-videos_playlist';
 

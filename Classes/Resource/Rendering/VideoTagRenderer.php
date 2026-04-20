@@ -162,12 +162,13 @@ class VideoTagRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VideoTagRender
                 $trackType = $fileObject->getProperty('track_type');
                 $languageTitle = LocalizationUtility::translate('language.default', 'videos');
 
-                $defaultLanguage = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($GLOBALS['TSFE']->id)->getDefaultLanguage();
+                $site = $GLOBALS['TYPO3_REQUEST']->getAttribute('site');
+                $defaultLanguage = $site->getDefaultLanguage();
 
                 $isoCode = $defaultLanguage->getHreflang();
 
                 if ($trackLanguage > -1) {
-                    $language = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($GLOBALS['TSFE']->id)->getLanguageById($trackLanguage);
+                    $language = $site->getLanguageById($trackLanguage);
                     if ($language) {
                         $languageTitle = $language->getTitle();
                         $isoCode = $language->getHreflang();

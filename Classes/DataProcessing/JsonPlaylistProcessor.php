@@ -176,7 +176,7 @@ class JsonPlaylistProcessor implements DataProcessorInterface
                     $trackLanguage = $fileObject->getProperty('track_language');
                     $trackType = $fileObject->getProperty('track_type');
                     $languageTitle = LocalizationUtility::translate('language.default', 'videos');
-                    $isoCode = $GLOBALS['TSFE']->config['config']['sys_language_isocode_default'];
+                    $isoCode = $cObj->getRequest()->getAttribute('language')?->getLocale()->getLanguageCode() ?? 'en';
                     $default = false;
 
                     if ($trackType === 'chapters') $default = true;

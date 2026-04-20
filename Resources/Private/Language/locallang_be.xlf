@@ -59,6 +59,9 @@
 			<trans-unit id="tt_content.videos">
 				<source>Videos</source>
 			</trans-unit>
+			<trans-unit id="tt_content.CType.videos_playlist">
+				<source>Video Playlist</source>
+			</trans-unit>
 
 		</body>
 	</file>
