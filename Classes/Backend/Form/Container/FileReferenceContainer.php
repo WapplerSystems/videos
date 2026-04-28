@@ -156,7 +156,7 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
                     $recordInfo .= ' [' . $this->data['tableName'] . ':' . $this->data['vanillaUid'] . ']';
                 }
                 $controls['delete'] = '
-                    <button type="button" class="btn btn-default t3js-editform-delete-file-reference" data-record-info="' . htmlspecialchars(trim($recordInfo)) . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:delete')) . '">
+                    <button type="button" class="btn btn-default t3js-editform-delete-inline-record" data-record-info="' . htmlspecialchars(trim($recordInfo)) . '" title="' . htmlspecialchars($languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:delete')) . '">
                         ' . $this->iconFactory->getIcon('actions-edit-delete', IconSize::SMALL)->render() . '
                     </button>';
             }
