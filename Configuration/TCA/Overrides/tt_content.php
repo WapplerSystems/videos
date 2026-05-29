@@ -15,6 +15,7 @@ ExtensionManagementUtility::addTcaSelectItem('tt_content', 'CType', [
     'label' => 'LLL:EXT:videos/Resources/Private/Language/locallang_be.xlf:tt_content.CType.videos_playlist',
     'value' => 'videos_playlist',
     'icon' => 'mimetypes-x-content-multimedia',
+    'group' => 'special',
 ]);
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['videos_playlist'] = 'mimetypes-x-content-videos_playlist';
