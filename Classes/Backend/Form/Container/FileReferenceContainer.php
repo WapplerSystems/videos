@@ -22,6 +22,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Type\Bitmask\Permission;
@@ -43,7 +44,7 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
         parent::__construct($iconFactory, $inlineStackProcessor, $eventDispatcher, $resourceFactory, $connectionPool, $uriBuilder, $metaDataRepository);
     }
 
-    protected function renderFileReferenceHeaderControl(): string
+    protected function renderFileReferenceHeaderControl(?File $file = null): string
     {
         $controls = [];
         $databaseRow = $this->data['databaseRow'];
@@ -114,6 +115,8 @@ class FileReferenceContainer extends \TYPO3\CMS\Backend\Form\Container\FileRefer
             if (!$isNewItem
                 && ($languageField = ($GLOBALS['TCA']['sys_file_metadata']['ctrl']['languageField'] ?? false))
                 && $backendUser->check('tables_modify', 'sys_file_metadata')
+                // TYPO3 >= 14.3.8 passes the file and checks editMeta; older cores pass nothing
+                && ($file === null || $file->checkActionPermission('editMeta'))
                 && $event->isControlEnabled('edit')
             ) {
                 $languageId = (int)(is_array($databaseRow[$languageField] ?? null)
