@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:videos="http://typo3.org/ns/WapplerSystems/Videos/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{file.extension} == 'youtube' || {file.extension} == 'vimeo'">
+    <f:then>
+        <f:media class="video-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" additionalConfig="{settings.media.additionalConfig}" />
+    </f:then>
+    <f:else>
+        <f:render partial="Videos/Assets" />
+        <f:media
+            id="video{file.uid}"
+            class="video-js vjs-big-play-centered {file -> videos:aspectRatioClass()}"
+            file="{file}"
+            width="{dimensions.width}"
+            height="{dimensions.height}"
+            alt="{file.alternative}"
+            title="{file.title}"
+        />
+        <f:asset.script identifier="videos-init-{file.uid}" useNonce="1">
+            var player{file.uid} = videojs('video{file.uid}');
+            player{file.uid}.markers();
+            player{file.uid}.markersUi();
+        </f:asset.script>
+    </f:else>
+</f:if>
+</html>

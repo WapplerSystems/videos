@@ -11,11 +11,10 @@ declare(strict_types=1);
 namespace WapplerSystems\Videos\DataProcessing;
 
 
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -173,32 +172,23 @@ class JsonPlaylistProcessor implements DataProcessorInterface
                 /** @var FileReference $fileObject */
                 foreach ($fileObjects as $key => $fileObject) {
 
-                    $trackLanguage = $fileObject->getProperty('track_language');
+                    $trackLanguage = (int)$fileObject->getProperty('track_language');
                     $trackType = $fileObject->getProperty('track_type');
                     $languageTitle = LocalizationUtility::translate('language.default', 'videos');
-                    $isoCode = $cObj->getRequest()->getAttribute('language')?->getLocale()->getLanguageCode() ?? 'en';
+                    $request = $this->contentObjectRenderer->getRequest();
+                    $isoCode = $request->getAttribute('language')?->getLocale()->getLanguageCode() ?? 'en';
                     $default = false;
 
                     if ($trackType === 'chapters') $default = true;
 
-                    if ($trackLanguage > 0) {
-                        /** @var QueryBuilder $queryBuilder */
-                        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-                        $languageRecord = $queryBuilder
-                            ->select('*')
-                            ->from('sys_language')
-                            ->where(
-                                $queryBuilder->expr()->eq(
-                                    'uid',
-                                    $queryBuilder->createNamedParameter($trackLanguage, \PDO::PARAM_INT)
-                                )
-                            )
-                            ->execute()
-                            ->fetch();
-
-                        if ($languageRecord) {
-                            $languageTitle = $languageRecord['title'];
-                            $isoCode = $languageRecord['language_isocode'];
+                    $site = $request->getAttribute('site');
+                    if ($trackLanguage > -1 && $site instanceof Site) {
+                        try {
+                            $language = $site->getLanguageById($trackLanguage);
+                            $languageTitle = $language->getTitle();
+                            $isoCode = $language->getLocale()->getLanguageCode();
+                        } catch (\InvalidArgumentException) {
+                            // language of the track is not configured in this site, keep the defaults
                         }
                     }
 
