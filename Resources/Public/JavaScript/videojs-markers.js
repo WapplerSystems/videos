@@ -424,9 +424,26 @@
             //player.off("loadedmetadata");
         }
 
+        // chapter cues that are loaded after the meta data: rebuild the markers once a track has loaded
+        function reloadMarkers() {
+            player.markers.removeAll();
+            addMarkers();
+            player.trigger('markersloaded');
+        }
+
         // setup the plugin after we loaded video's meta data
         player.on("loadedmetadata", function () {
             initialize();
+            var trackElements = player.el().querySelectorAll('track');
+            for (var i = 0; i < trackElements.length; i++) {
+                trackElements[i].addEventListener('load', reloadMarkers);
+            }
+            var remoteTrackElements = typeof player.remoteTextTrackEls === 'function' ? player.remoteTextTrackEls() : null;
+            for (var j = 0; remoteTrackElements && j < remoteTrackElements.length; j++) {
+                if (typeof remoteTrackElements[j].addEventListener === 'function') {
+                    remoteTrackElements[j].addEventListener('load', reloadMarkers);
+                }
+            }
         });
 
         // exposed plugin API
