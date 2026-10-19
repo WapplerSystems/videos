@@ -1,9 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:videos="http://typo3.org/ns/WapplerSystems/Videos/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:if condition="{file.extension} == 'youtube' || {file.extension} == 'vimeo'">
+<f:comment>video.js only for the mime types handled by the VideoTagRenderer; online media (YouTube, Vimeo, ...) keeps the default rendering</f:comment>
+<f:if condition="{file.mimeType} == 'video/mp4' || {file.mimeType} == 'video/webm' || {file.mimeType} == 'video/ogg' || {file.mimeType} == 'application/ogg'">
     <f:then>
-        <f:media class="video-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" additionalConfig="{settings.media.additionalConfig}" />
-    </f:then>
-    <f:else>
         <f:render partial="Videos/Assets" />
         <f:media
             id="video{file.uid}"
@@ -19,6 +17,9 @@
             player{file.uid}.markers();
             player{file.uid}.markersUi();
         </f:asset.script>
+    </f:then>
+    <f:else>
+        <f:media class="video-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" additionalConfig="{settings.media.additionalConfig}" />
     </f:else>
 </f:if>
 </html>
